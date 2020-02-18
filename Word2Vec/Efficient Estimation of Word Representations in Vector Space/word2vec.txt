@@ -47,3 +47,7 @@ as they have built their own testing metrics for this task
 by manually building their testing metrics by comprising 
 sentatic and symantic questions 
 and testing their architectur on them 
+
+
+
+good blog:https://towardsdatascience.com/document-embedding-techniques-fed3e7a6a25d
