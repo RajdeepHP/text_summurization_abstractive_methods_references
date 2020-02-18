@@ -1,0 +1,49 @@
+
+https://arxiv.org/pdf/1301.3781.pdf
+
+paper introduced by google in 2013
+to discuss ways of embedding text using neural networks, 
+first it compares multiple methods 
+    |--> Feedforward Neural Net Language Model (NNLM) --> VI as it is further used
+    |--> Recurrent Neural Net Language Model (RNNLM)
+    |--> Parallel Training of Neural Networks
+
+then it discusses the proposed model (called log-linear)
+    it is comprised of 2 architectuers built on top of each other
+        |--> Continuous Bag-of-Words Model
+                same as NNLM, but without the non-linear model
+                only projection directly connected
+                
+                architecture:
+                        (4history_words)        (4future_words)
+                    ------------------------------------------------    
+                                        |
+                                        V
+                                projection (using log-linear)
+                            to correctly predict (current_word) 
+
+                notes:
+                    order not important, it is not bag-of-words as
+                    it uses continuous
+                    distributed representation of the context.
+
+        |--> Continuous Skip-gram Model
+                current word enters a neural netowrk, to predict both 
+                history and next words
+
+                architecture:
+                                    (current)        
+                    ------------------------------------------------    
+                                        |
+                                        V
+                                projection (using log-linear)
+                            to correctly predict (current_word) 
+                        (4history_words)        (4future_words)
+
+
+
+Their testing techniques were quite unique, 
+as they have built their own testing metrics for this task
+by manually building their testing metrics by comprising 
+sentatic and symantic questions 
+and testing their architectur on them 
